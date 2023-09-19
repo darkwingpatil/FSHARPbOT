@@ -31,7 +31,7 @@ server.post<{
       //console.log(sessionData)
       let queryResponse= await answerQuery(question,sessionId,sessionData?sessionData:undefined)
       console.log(queryResponse,"response from langchain")
-      reply.code(200).send({ pong: queryResponse });
+      reply.code(200).send({ pong: queryResponse,sessionId });
     }
     catch(err:any)
     {
