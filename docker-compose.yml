@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  slai_node:
+    platform: linux/amd64
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./server/.env.development
+    container_name: slai_node_container_wing
+    ports:
+      - 8080:8080
