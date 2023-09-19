@@ -2,6 +2,7 @@ import fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify'
 import { Server, IncomingMessage, ServerResponse } from 'http';
 import {findingSessionFromTxt} from "./service/finderAllocator"
 import {answerQuery} from "./index"
+import fastifyCors from '@fastify/cors'
 
 
 const server: FastifyInstance<
@@ -9,6 +10,11 @@ const server: FastifyInstance<
   IncomingMessage,
   ServerResponse
 > = fastify({ logger: true });
+
+server.register(fastifyCors, {
+  origin: true, // Replace with your desired CORS configuration
+  methods: ['GET', 'PUT', 'POST', 'DELETE'],
+})
 
 
 interface PingBody {
