@@ -83,7 +83,7 @@ const context_wrapper=async(relevantDocs:any,historyThread?:any)=>{
 // this is basically setting up the pdf for the context    
 const chatDocumentLoader = async (question:string) => {
     try{
-        const loader = new PDFLoader(currPath+"/dotnetfsharp.pdf");
+        const loader = new PDFLoader(currPath+"/fsharp_tutorial.pdf");
         const docs = await loader.loadAndSplit();
         const store = await MemoryVectorStore.fromDocuments(docs, embeddings);
     
